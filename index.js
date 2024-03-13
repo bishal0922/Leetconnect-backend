@@ -7,8 +7,8 @@ const app = express();
 
 // Database connection
 // const MONGO_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.odoe0my.mongodb.net/?retryWrites=true&w=majority`;
-const MONGO_URI = process.env.MONGO_URI;
-mongoose.connect(MONGO_URI).then(() => {
+const MONGO_URL = process.env.MONGO_URI;
+mongoose.connect(MONGO_URL).then(() => {
   console.log('Connected to the database');
 }).catch((err) => {
   console.log('Failed to connect to the database', err);
@@ -22,6 +22,7 @@ app.use(express.json()); // for parsing application/json
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const { $where } = require('./models/User');
 
 app.use('/api', authRoutes); // Use the authRoutes for all routes starting with /api
 app.use('/user', userRoutes); // Use the userRoutes for all routes starting with /user
