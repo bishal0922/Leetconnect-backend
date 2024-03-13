@@ -6,8 +6,9 @@ require('dotenv').config();
 const app = express();
 
 // Database connection
-const MONGO_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.odoe0my.mongodb.net/?retryWrites=true&w=majority`;
-mongoose.connect(MONGO_URL).then(() => {
+// const MONGO_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.odoe0my.mongodb.net/?retryWrites=true&w=majority`;
+const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect(MONGO_URI).then(() => {
   console.log('Connected to the database');
 }).catch((err) => {
   console.log('Failed to connect to the database', err);
