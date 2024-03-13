@@ -1,13 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const axios = require('axios');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
 
 // Database connection
-const connectDB = require('./config/db');
-connectDB();
+const MONGO_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.odoe0my.mongodb.net/?retryWrites=true&w=majority`;
+mongoose.connect(MONGO_URL).then(() => {
+  console.log('Connected to the database');
+}).catch((err) => {
+  console.log('Failed to connect to the database', err);
+});
 
 // Middleware
 app.use(cors());
@@ -25,11 +29,6 @@ app.use('/user', userRoutes); // Use the userRoutes for all routes starting with
 // Home route
 app.get('/', (req, res) => {
   res.send('Welcome to the server');
-});
-
-// Hello route
-app.get('/hello', (req, res) => {
-  res.send('Hello World');
 });
 
 
