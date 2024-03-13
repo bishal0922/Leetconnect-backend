@@ -6,10 +6,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    leetCodeUsername: {
-        type: String,
-        required: false // Make required true if you want it to be mandatory
-    },
+    leetCodeUsername: String,
     verificationToken: {
         type: String,
         required: true,
