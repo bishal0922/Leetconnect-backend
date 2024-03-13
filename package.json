@@ -1,18 +1,22 @@
 {
   "name": "leetconnect",
   "version": "1.0.0",
-  "description": "Todo:",
-  "main": "index.js",
+  "description": "A platform connecting LeetCode enthusiasts.",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "cd server && npm install && npm run build"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bishal0922/LeetConnect.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "leetcode",
+    "coding",
+    "practice",
+    "collaboration"
+  ],
+  "author": "Your Name",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bishal0922/LeetConnect/issues"
